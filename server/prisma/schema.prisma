@@ -9,3 +9,44 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id String @id @default(uuid())
+
+  username String  @unique @db.VarChar(255)
+  password String  @db.VarChar(255)
+  boards   Board[]
+}
+
+model Board {
+  id String @id @default(uuid())
+
+  name String @db.VarChar(255)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+  lists  List[]
+}
+
+model List {
+  id String @id @default(uuid())
+
+  title String @db.VarChar(255)
+
+  boardId   String
+  board     Board      @relation(fields: [boardId], references: [id])
+  listItems ListItem[]
+}
+
+model ListItem {
+  id String @id @default(uuid())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  description String  @db.VarChar(255)
+  isCompleted Boolean
+
+  listId String
+  list   List   @relation(fields: [listId], references: [id])
+}
