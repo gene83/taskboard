@@ -1,11 +1,13 @@
-import './App.css';
+import Login from '../login/Login';
+import './App.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="app">
+      <header className="app-header">
           TaskBoard
       </header>
+      <Login />
     </div>
   );
 }
