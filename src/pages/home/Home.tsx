@@ -11,7 +11,7 @@ const Home = () => {
         }
 
         // TODO Load data
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div>

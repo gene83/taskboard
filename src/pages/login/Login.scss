@@ -27,8 +27,19 @@ div.background {
         }
 
         button {
+            cursor: pointer;
+        }
+
+        button.submit {
             margin: 16px 0;
             height: 36px;
+        }
+
+        button.register {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            color: blue;
         }
     }
 }
