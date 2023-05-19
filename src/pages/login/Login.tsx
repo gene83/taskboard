@@ -17,15 +17,15 @@ const Login = () => {
         let res;
 
         if (isRegister) {
-            res = await Axios.post('/register', user);
+            res = await Axios.post('/user', user);
         } else {
-            res = await Axios.post('/login', user);
+            res = await Axios.post('/signin', user);
         }
 
 
         console.log(res);
 
-        localStorage.setItem('accessToken', res.data);
+        localStorage.setItem('accessToken', res.data.token);
     }
 
     return (

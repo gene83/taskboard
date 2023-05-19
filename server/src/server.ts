@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from 'morgan';
+import { createNewUser } from "./modules/user";
 
 const app = express();
 
@@ -12,5 +13,6 @@ app.get('/', (req, res) => {
     res.json({ message: 'Hello from server' })
 })
 
+app.post('/user', createNewUser);
 
 export default app;
