@@ -1,20 +1,31 @@
 import { NextFunction, Request, Response } from "express";
-import prisma from "../utils/prisma"
-import { Board, User } from "@prisma/client";
+import prisma from "../utils/prisma";
 
-type RequestWithUser = Request & { user: User };
-
-export const createBoard = (req: RequestWithUser, res: Response, next: NextFunction) => {
-    try {
-        let board: Board = req.body;
-        board = prisma.board.create({
-            name: board.name,
-            userId: req.user.id
-        })
-    
-        res.json({ data: board });
-    } catch (e) {
-        next(e);
+export const createBoard = (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { name } = req.body;
+    if (!name) {
+        return res.json(400);
     }
 
-}
+    const userId = req.user?.id;
+    if (!userId) {
+        return res.json(401);
+    }
+
+    const board = prisma.board.create({
+        data: {
+            name,
+            userId
+        }
+    });
+
+    res.json({ data: board });
+  } catch (e) {
+    next(e);
+  }
+};

@@ -3,8 +3,8 @@ import * as userHandler from "../handlers/userHandler";
 
 const router = Router();
 
-router.post("/user", userHandler.createUser);
+router.post("/", userHandler.createUser);
 
-router.post("/user/login", userHandler.loginUser);
+router.post("/login", userHandler.loginUser);
 
 export default router;
