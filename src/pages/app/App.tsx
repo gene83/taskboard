@@ -1,19 +1,15 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Login from '../login/Login';
-import './App.scss';
-import Home from '../home/Home';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "../Login/Login";
+import "./App.scss";
+import Home from "../Home/Home";
 
 function App() {
-
   return (
     <div className="app">
       <BrowserRouter>
-        <header className="app-header">
-            TaskBoard
-        </header>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />}/>
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </div>
