@@ -1,12 +1,18 @@
-import prisma from '../utils/prisma';
+import prisma from "../utils/prisma";
 
-export const createUserPrisma = async (username: string, password: string) => {
-    const user = await prisma.user.create({
-        data: {
-            username,
-            password
-        }
-    })
+export const createUser = async (username: string, password: string) => {
+  return await prisma.user.create({
+    data: {
+      username,
+      password,
+    },
+  });
+};
 
-    return user;
-}
+export const getByUsername = async (username: string) => {
+  return await prisma.user.findUnique({
+    where: {
+      username,
+    },
+  });
+};
