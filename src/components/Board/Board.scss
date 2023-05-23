@@ -1,6 +1,12 @@
 div.board {
   background-color: #f5f4f7;
   height: 100%;
+  padding: 16px;
+
+  h3.board-name {
+    margin: 0;
+    padding-left: 8px;
+  }
 
   div.lists-container {
     display: flex;

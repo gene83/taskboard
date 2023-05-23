@@ -1,3 +1,4 @@
+import "../List/List.scss";
 import { Key } from "react";
 import ListItem from "../ListItem/ListItem";
 

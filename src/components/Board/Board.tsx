@@ -63,7 +63,7 @@ const Board = () => {
   };
   return (
     <div className="board">
-      <h4 className="board-name">{board.name}</h4>
+      <h3 className="board-name">{board.name}</h3>
       <div className="lists-container">
         {board.lists.map((list) => (
           <List key={list.id as Key} list={list} />
