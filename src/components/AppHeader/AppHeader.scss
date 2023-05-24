@@ -1,0 +1,15 @@
+div.app-header {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+
+  input.search {
+    border: none;
+    border-radius: 0.5em;
+    background-color: #f5f4f7;
+    height: 30px;
+    width: 400px;
+    padding: 8px;
+  }
+}
