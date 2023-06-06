@@ -1,16 +1,17 @@
 import "../List/List.scss";
 import { Key } from "react";
+import { AiOutlinePlus } from "react-icons/ai";
 import ListItem from "../ListItem/ListItem";
 
 export type List = {
-  id: String;
-  title: String;
+  id: string;
+  title: string;
   listItems: ListItem[];
 };
 
 export type ListItem = {
-  id: String;
-  description: String;
+  id: string;
+  description: string;
   isCompleted: boolean;
 };
 
@@ -24,6 +25,10 @@ const List = ({ list }: { list: List }) => {
   return (
     <div className="list">
       <h4 className="list-title">{list.title}</h4>
+      <div className="add-task">
+        <AiOutlinePlus />
+        <span>Add a Task</span>
+      </div>
       {incomplete.map((listItem) => (
         <ListItem key={listItem.id as Key} listItem={listItem} />
       ))}
